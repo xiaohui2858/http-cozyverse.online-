@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Metadata for Homepage -->
+    <title>Cozyverse - Your Sanctuary for Relaxing Online Games</title>
+    <meta name="description" content="Welcome to Cozyverse, your personal escape for the best free online cozy and relaxing games. Unwind with puzzle, simulation, and ASMR games. Start playing now!">
+    <link rel="canonical" href="https://cozyverse.online/">
+    
+    <!-- Link to your existing style.css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom styles for the homepage grid -->
+    <style>
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.3em;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: #374151;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* You can create simple thumbnail images for each game */
+        .game-card-thumbnail {
+            width: 100%;
+            height: 180px;
+            background-color: #eef2ff; /* Placeholder color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #3b82f6;
+            font-size: 1.2em;
+        }
+        /* Example specific thumbnail colors */
+        .thumb-water-sort { background-color: #dbeafe; }
+        .thumb-tiny-fishing { background-color: #e0f2fe; }
+        .thumb-fill-fridge { background-color: #dcfce7; }
+        .thumb-pop-it { background-color: #fce7f3; }
+
+
+        .game-card-content {
+            padding: 20px;
+        }
+
+        .game-card-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .game-card-description {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="https://cozyverse.online" class="site-logo">Cozyverse</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <!-- Hero Welcome Section -->
+            <section class="hero">
+                <h1>Welcome to Your Cozy Universe</h1>
+                <p>Leave the stress behind. Here you'll find a curated collection of the most relaxing and satisfying games to calm your mind and brighten your day.</p>
+            </section>
+
+            <!-- Game Grid Section -->
+            <section class="game-grid">
+
+                <!-- Card for Water Sort Puzzle -->
+                <a href="water-sort-puzzle.html" class="game-card">
+                    <div class="game-card-thumbnail thumb-water-sort">
+                        <span>Water Sort Puzzle</span>
+                    </div>
+                    <div class="game-card-content">
+                        <h2 class="game-card-title">Water Sort Puzzle</h2>
+                        <p class="game-card-description">A colorful and addictive logic puzzle. Can you sort all the liquids? Soothing and satisfying.</p>
+                    </div>
+                </a>
+
+                <!-- Card for Tiny Fishing -->
+                <a href="tiny-fishing.html" class="game-card">
+                    <div class="game-card-thumbnail thumb-tiny-fishing">
+                        <span>Tiny Fishing</span>
+                    </div>
+                    <div class="game-card-content">
+                        <h2 class="game-card-title">Tiny Fishing</h2>
+                        <p class="game-card-description">Cast your line and unwind. A charming fishing adventure with simple controls and endless fun.</p>
+                    </div>
+                </a>
+
+                <!-- Card for Fill The Fridge -->
+                <a href="fill-the-fridge.html" class="game-card">
+                     <div class="game-card-thumbnail thumb-fill-fridge">
+                        <span>Fill The Fridge</span>
+                    </div>
+                    <div class="game-card-content">
+                        <h2 class="game-card-title">Fill The Fridge</h2>
+                        <p class="game-card-description">For the organization lover in you! A super satisfying game of stocking a fridge to perfection.</p>
+                    </div>
+                </a>
+
+                <!-- Card for Pop It! Electronic -->
+                <a href="pop-it-electronic.html" class="game-card">
+                    <div class="game-card-thumbnail thumb-pop-it">
+                        <span>Pop It! Electronic</span>
+                    </div>
+                    <div class="game-card-content">
+                        <h2 class="game-card-title">Pop It! Electronic</h2>
+                        <p class="game-card-description">The ultimate digital fidget toy. Enjoy satisfying pops and ASMR sounds for instant stress relief.</p>
+                    </div>
+                </a>
+
+                <!-- Add more game cards here as you create more pages -->
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2024 Cozyverse.online. All rights reserved. | A place for cozy online games.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

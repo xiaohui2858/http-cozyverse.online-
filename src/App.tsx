@@ -10,7 +10,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/http-cozyverse.online-">
       <div className="min-h-screen bg-white">
         <Routes>
           <Route path="/admin" element={<AdminDashboard />} />

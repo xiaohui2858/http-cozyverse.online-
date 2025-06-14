@@ -19,56 +19,63 @@ export interface Category {
   description: string;
   icon: string;
   color: string;
+  gameCount: number;
 }
 
 export const categories: Category[] = [
   {
     id: 'puzzle',
-    name: 'Puzzle Games',
+    name: 'Puzzle',
     slug: 'puzzle',
-    description: 'Brain teasing puzzles and logic games',
+    description: 'Brain-teasing games that challenge your logic and problem-solving skills',
     icon: '🧩',
-    color: 'bg-blue-500'
+    color: 'from-purple-400 to-pink-400',
+    gameCount: 5
   },
   {
     id: 'simulation',
-    name: 'Simulation Games',
+    name: 'Simulation',
     slug: 'simulation',
-    description: 'Life simulation and management games',
-    icon: '🏠',
-    color: 'bg-green-500'
+    description: 'Life-like experiences that let you build, manage, and create',
+    icon: '🏡',
+    color: 'from-blue-400 to-cyan-400',
+    gameCount: 5
   },
   {
     id: 'adventure',
-    name: 'Adventure Games',
+    name: 'Adventure',
     slug: 'adventure',
-    description: 'Explore worlds and solve mysteries',
-    icon: '🗺️',
-    color: 'bg-purple-500'
+    description: 'Peaceful exploration and discovery games',
+    icon: '🌲',
+    color: 'from-green-400 to-emerald-400',
+    gameCount: 5
   },
   {
     id: 'casual',
-    name: 'Casual Games',
+    name: 'Casual',
     slug: 'casual',
-    description: 'Easy to play, fun for everyone',
+    description: 'Easy-to-play games perfect for quick relaxation breaks',
     icon: '🎮',
-    color: 'bg-yellow-500'
+    color: 'from-yellow-400 to-orange-400',
+    gameCount: 3
   },
   {
     id: 'creative',
-    name: 'Creative Games',
+    name: 'Creative',
     slug: 'creative',
-    description: 'Express your creativity',
+    description: 'Express yourself through art, music, and design',
     icon: '🎨',
-    color: 'bg-pink-500'
+    color: 'from-indigo-400 to-purple-400',
+    gameCount: 1
   },
   {
     id: 'nature',
-    name: 'Nature Games',
+    name: 'Nature',
     slug: 'nature',
-    description: 'Connect with the natural world',
+    description: 'Connect with the natural world through immersive experiences',
     icon: '🌿',
-    color: 'bg-emerald-500'
+    color: 'from-green-400 to-teal-400',
+    gameCount: 3
   }
 ];
 
@@ -85,7 +92,7 @@ export const games: Game[] = [
     popularityScore: 4521,
     status: 'published',
     publishedAt: '2024-01-20T10:00:00Z',
-    iframeCode: '<iframe src="https://play2048.co/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+    iframeCode: '<iframe src="https://gabrielecirulli.github.io/2048/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
   {
     id: 'p2',
@@ -98,7 +105,7 @@ export const games: Game[] = [
     popularityScore: 3892,
     status: 'published',
     publishedAt: '2024-01-19T10:00:00Z',
-    iframeCode: '<iframe src="https://www.247sudoku.com/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+    iframeCode: '<iframe src="https://sudoku.com/sudoku-easy/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
   {
     id: 'p3',
@@ -111,7 +118,7 @@ export const games: Game[] = [
     popularityScore: 5234,
     status: 'published',
     publishedAt: '2024-01-17T10:00:00Z',
-    iframeCode: '<iframe src="https://www.freetetris.org/game.php" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+    iframeCode: '<iframe src="https://tetris.com/play-tetris" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
   {
     id: 'p4',
@@ -299,7 +306,7 @@ export const games: Game[] = [
     popularityScore: 3789,
     status: 'published',
     publishedAt: '2024-01-11T10:00:00Z',
-    iframeCode: '<iframe src="https://playsnake.org/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+    iframeCode: '<iframe src="https://www.google.com/fbx?fbx=snake_arcade" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
   {
     id: 'c3',

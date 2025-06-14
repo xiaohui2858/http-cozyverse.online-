@@ -30,7 +30,7 @@ export const categories: Category[] = [
     description: 'Brain-teasing games that challenge your logic and problem-solving skills',
     icon: '🧩',
     color: 'from-purple-400 to-pink-400',
-    gameCount: 8
+    gameCount: 10
   },
   {
     id: 'simulation',
@@ -39,7 +39,7 @@ export const categories: Category[] = [
     description: 'Life-like experiences that let you build, manage, and create',
     icon: '🏡',
     color: 'from-blue-400 to-cyan-400',
-    gameCount: 8
+    gameCount: 10
   },
   {
     id: 'adventure',
@@ -48,7 +48,7 @@ export const categories: Category[] = [
     description: 'Peaceful exploration and discovery games',
     icon: '🌲',
     color: 'from-green-400 to-emerald-400',
-    gameCount: 8
+    gameCount: 10
   },
   {
     id: 'casual',
@@ -57,7 +57,7 @@ export const categories: Category[] = [
     description: 'Easy-to-play games perfect for quick relaxation breaks',
     icon: '🎮',
     color: 'from-yellow-400 to-orange-400',
-    gameCount: 8
+    gameCount: 10
   },
   {
     id: 'creative',
@@ -66,7 +66,7 @@ export const categories: Category[] = [
     description: 'Express yourself through art, music, and design',
     icon: '🎨',
     color: 'from-indigo-400 to-purple-400',
-    gameCount: 6
+    gameCount: 10
   },
   {
     id: 'nature',
@@ -75,7 +75,7 @@ export const categories: Category[] = [
     description: 'Connect with the natural world through immersive experiences',
     icon: '🌿',
     color: 'from-green-400 to-teal-400',
-    gameCount: 6
+    gameCount: 10
   }
 ];
 
@@ -185,6 +185,32 @@ export const games: Game[] = [
     publishedAt: '2024-01-08T10:00:00Z',
     iframeCode: '<iframe src="https://www.crazygames.com/embed/nonogram" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
+  {
+    id: 'p9',
+    title: 'Tic Tac Toe Master',
+    slug: 'tic-tac-toe-master',
+    description: 'Classic X and O strategy game with score tracking. Play against computer or track wins and draws.',
+    coverImage: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+    categories: ['puzzle'],
+    controls: 'Click cells to place your mark',
+    popularityScore: 2987,
+    status: 'published',
+    publishedAt: '2024-01-22T10:00:00Z',
+    iframeCode: '<iframe src="./games/tic-tac-toe.html" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'p10',
+    title: 'Simple Tetris',
+    slug: 'simple-tetris',
+    description: 'Classic falling blocks puzzle game with all 7 piece types. Clear lines and level up in this addictive arcade game.',
+    coverImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+    categories: ['puzzle', 'casual'],
+    controls: 'Arrow keys to move, space to rotate, down to drop',
+    popularityScore: 4123,
+    status: 'published',
+    publishedAt: '2024-01-21T10:00:00Z',
+    iframeCode: '<iframe src="./games/tetris-simple.html" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
 
   // === SIMULATION GAMES ===
   {
@@ -290,6 +316,32 @@ export const games: Game[] = [
     status: 'published',
     publishedAt: '2024-01-07T10:00:00Z',
     iframeCode: '<iframe src="https://www.crazygames.com/embed/virtual-aquarium" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 's9',
+    title: 'Supermarket Manager',
+    slug: 'supermarket-manager',
+    description: 'Run your own supermarket business. Stock shelves, serve customers, and manage your grocery store empire.',
+    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&crop=center',
+    categories: ['simulation'],
+    controls: 'Click to manage inventory and serve customers',
+    popularityScore: 3456,
+    status: 'published',
+    publishedAt: '2024-01-23T10:00:00Z',
+    iframeCode: '<iframe src="https://www.crazygames.com/embed/supermarket-manager" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 's10',
+    title: 'Hospital Manager',
+    slug: 'hospital-manager',
+    description: 'Manage a busy hospital. Treat patients, upgrade facilities, and hire staff to create the best medical center.',
+    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center',
+    categories: ['simulation'],
+    controls: 'Click to treat patients and manage hospital operations',
+    popularityScore: 2987,
+    status: 'published',
+    publishedAt: '2024-01-22T10:00:00Z',
+    iframeCode: '<iframe src="https://gamedistribution.com/games/hospital-manager" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
 
   // === ADVENTURE GAMES ===
@@ -397,6 +449,32 @@ export const games: Game[] = [
     publishedAt: '2024-01-12T10:00:00Z',
     iframeCode: '<iframe src="https://www.miniplay.com/embed/daily-room-escape" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
+  {
+    id: 'a9',
+    title: 'Space Station Escape',
+    slug: 'space-station-escape',
+    description: 'Escape from a malfunctioning space station. Solve technical puzzles and navigate through zero gravity environments.',
+    coverImage: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=300&fit=crop&crop=center',
+    categories: ['adventure', 'puzzle'],
+    controls: 'WASD to move, mouse to interact with panels',
+    popularityScore: 3234,
+    status: 'published',
+    publishedAt: '2024-01-24T10:00:00Z',
+    iframeCode: '<iframe src="https://www.crazygames.com/embed/space-escape" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'a10',
+    title: 'Ancient Temple Quest',
+    slug: 'ancient-temple-quest',
+    description: 'Explore mysterious ancient temples filled with puzzles and treasures. Uncover secrets of lost civilizations.',
+    coverImage: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400&h=300&fit=crop&crop=center',
+    categories: ['adventure'],
+    controls: 'Arrow keys to explore, mouse to examine objects',
+    popularityScore: 2876,
+    status: 'published',
+    publishedAt: '2024-01-23T10:00:00Z',
+    iframeCode: '<iframe src="https://gamedistribution.com/games/temple-quest" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
 
   // === CASUAL GAMES ===
   {
@@ -503,6 +581,32 @@ export const games: Game[] = [
     publishedAt: '2024-01-06T10:00:00Z',
     iframeCode: '<iframe src="https://www.miniplay.com/embed/dots-boxes" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
+  {
+    id: 'c9',
+    title: 'Pong Classic',
+    slug: 'pong-classic',
+    description: 'Classic arcade pong game. Control the paddle and try to beat the computer in this timeless sports game.',
+    coverImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+    categories: ['casual'],
+    controls: 'Move mouse to control paddle',
+    popularityScore: 3456,
+    status: 'published',
+    publishedAt: '2024-01-25T10:00:00Z',
+    iframeCode: '<iframe src="./games/pong-game.html" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'c10',
+    title: 'Memory Match',
+    slug: 'memory-match',
+    description: 'Classic memory card matching game. Find pairs of cards and test your memory skills with emoji symbols.',
+    coverImage: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+    categories: ['casual', 'puzzle'],
+    controls: 'Click cards to flip and find matching pairs',
+    popularityScore: 2987,
+    status: 'published',
+    publishedAt: '2024-01-24T10:00:00Z',
+    iframeCode: '<iframe src="./games/memory-match.html" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
 
   // === CREATIVE GAMES ===
   {
@@ -583,6 +687,58 @@ export const games: Game[] = [
     publishedAt: '2024-01-11T10:00:00Z',
     iframeCode: '<iframe src="https://scratch.mit.edu/projects/345678901/embed" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   },
+  {
+    id: 'cr7',
+    title: 'Logo Designer',
+    slug: 'logo-designer',
+    description: 'Design professional logos and brand identity. Use shapes, colors, and text to create memorable brand designs.',
+    coverImage: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop&crop=center',
+    categories: ['creative'],
+    controls: 'Drag elements and adjust properties to design',
+    popularityScore: 2345,
+    status: 'published',
+    publishedAt: '2024-01-26T10:00:00Z',
+    iframeCode: '<iframe src="https://www.miniplay.com/embed/logo-designer" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'cr8',
+    title: 'Room Decorator',
+    slug: 'room-decorator',
+    description: 'Design and decorate beautiful rooms. Choose furniture, colors, and decorations to create your dream space.',
+    coverImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center',
+    categories: ['creative', 'simulation'],
+    controls: 'Click and drag furniture and decorations',
+    popularityScore: 2876,
+    status: 'published',
+    publishedAt: '2024-01-25T10:00:00Z',
+    iframeCode: '<iframe src="https://gamedistribution.com/games/room-decorator" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'cr9',
+    title: 'Comic Book Creator',
+    slug: 'comic-book-creator',
+    description: 'Create your own comic books with characters, speech bubbles, and panels. Tell your story visually.',
+    coverImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+    categories: ['creative'],
+    controls: 'Drag elements to create comic panels',
+    popularityScore: 2123,
+    status: 'published',
+    publishedAt: '2024-01-24T10:00:00Z',
+    iframeCode: '<iframe src="https://scratch.mit.edu/projects/789012345/embed" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'cr10',
+    title: 'Greeting Card Maker',
+    slug: 'greeting-card-maker',
+    description: 'Design personalized greeting cards for any occasion. Add photos, text, and decorations to create special cards.',
+    coverImage: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
+    categories: ['creative'],
+    controls: 'Click to add and customize card elements',
+    popularityScore: 1987,
+    status: 'published',
+    publishedAt: '2024-01-23T10:00:00Z',
+    iframeCode: '<iframe src="https://www.crazygames.com/embed/card-maker" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
 
   // === NATURE GAMES ===
   {
@@ -662,6 +818,58 @@ export const games: Game[] = [
     status: 'published',
     publishedAt: '2024-01-09T10:00:00Z',
     iframeCode: '<iframe src="https://gamedistribution.com/games/bird-watching" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'n7',
+    title: 'Weather Watcher',
+    slug: 'weather-watcher',
+    description: 'Learn about weather patterns and climate. Track storms, predict weather, and understand meteorology.',
+    coverImage: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop&crop=center',
+    categories: ['nature'],
+    controls: 'Click weather icons to learn and track patterns',
+    popularityScore: 2123,
+    status: 'published',
+    publishedAt: '2024-01-27T10:00:00Z',
+    iframeCode: '<iframe src="https://www.crazygames.com/embed/weather-simulator" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'n8',
+    title: 'Ecosystem Builder',
+    slug: 'ecosystem-builder',
+    description: 'Create balanced ecosystems by adding plants and animals. Learn about food chains and natural balance.',
+    coverImage: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop&crop=center',
+    categories: ['nature', 'simulation'],
+    controls: 'Drag species to build ecosystem relationships',
+    popularityScore: 2456,
+    status: 'published',
+    publishedAt: '2024-01-26T10:00:00Z',
+    iframeCode: '<iframe src="https://scratch.mit.edu/projects/890123456/embed" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'n9',
+    title: 'Planet Explorer',
+    slug: 'planet-explorer',
+    description: 'Explore different planets and their unique environments. Discover alien landscapes and space phenomena.',
+    coverImage: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=300&fit=crop&crop=center',
+    categories: ['nature', 'adventure'],
+    controls: 'WASD to explore planets, mouse to examine objects',
+    popularityScore: 2789,
+    status: 'published',
+    publishedAt: '2024-01-25T10:00:00Z',
+    iframeCode: '<iframe src="https://gamedistribution.com/games/planet-explorer" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
+  },
+  {
+    id: 'n10',
+    title: 'Recycling Hero',
+    slug: 'recycling-hero',
+    description: 'Help save the environment by sorting waste and learning about recycling. Make Earth cleaner and greener.',
+    coverImage: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&h=300&fit=crop&crop=center',
+    categories: ['nature'],
+    controls: 'Drag items to correct recycling bins',
+    popularityScore: 2234,
+    status: 'published',
+    publishedAt: '2024-01-24T10:00:00Z',
+    iframeCode: '<iframe src="https://www.miniplay.com/embed/recycling-game" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>'
   }
 ];
 

@@ -10,6 +10,7 @@ export interface Game {
   status: 'published' | 'draft';
   publishedAt: string;
   iframeCode: string;
+  icon: string;
 }
 
 export interface Category {

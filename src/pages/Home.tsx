@@ -1,167 +1,267 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Clock, Star } from 'lucide-react';
 import GameCard from '../components/GameCard';
-import { categories, getGamesByCategory } from '../data/mockData';
+import AdSense from '../components/AdSense';
+import { categories, getGamesByCategory, games } from '../data/mockData';
 
 const Home: React.FC = () => {
+  // Get featured games (most popular)
+  const featuredGames = games
+    .sort((a, b) => b.popularityScore - a.popularityScore)
+    .slice(0, 16);
+
+  // Get newest games
+  const newestGames = games
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 12);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section - More compact */}
+      <section className="relative bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <div className="bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full p-3">
-                <Sparkles className="h-8 w-8 text-emerald-600" />
+            <div className="flex justify-center mb-3">
+              <div className="bg-white/10 backdrop-blur-sm rounded-full p-2">
+                <Sparkles className="h-6 w-6 text-white" />
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Your Universe of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                Calm and Relaxing
-              </span>{' '}
-              Games
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
+              Welcome to{' '}
+              <span className="text-emerald-300">
+                Cozyverse
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Discover a curated collection of cozy, wholesome games designed to help you unwind, 
-              relax, and find peace in your gaming experience. No stress, no pressure – just pure, 
-              gentle entertainment.
+            <p className="text-base text-emerald-100 max-w-xl mx-auto mb-6 leading-relaxed">
+              Discover cozy, relaxing games designed to help you unwind. 
+              No stress, no pressure – just pure, gentle entertainment.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <Link
-                to="/category/puzzle"
-                className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl"
+                to="/browse"
+                className="bg-white text-emerald-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-50 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl"
               >
-                <span>Start Playing</span>
+                <span>Browse All Games</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="#categories"
-                className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
-              >
-                Browse Categories
-              </Link>
+              <div className="flex items-center gap-4 text-emerald-200 text-sm">
+                <div className="flex items-center gap-1">
+                  <span className="font-semibold text-white">{games.length}</span>
+                  <span>Games</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="font-semibold text-white">{categories.length}</span>
+                  <span>Categories</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Ad Space - Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 text-center border border-blue-100">
-          <p className="text-blue-600 font-medium text-sm">Advertisement Space</p>
-          <p className="text-blue-500 text-xs mt-1">Header Banner Ad (728x90)</p>
+      {/* Main Content Area with Sidebar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex gap-6">
+          {/* Left Sidebar - Categories */}
+          <div className="hidden lg:block w-64 flex-shrink-0">
+            <div className="sticky top-6">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <span className="text-emerald-600">🎮</span>
+                  Game Categories
+                </h2>
+                
+                <div className="space-y-2">
+                  <Link
+                    to="/browse"
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-sm rounded-lg transition-colors bg-emerald-50 text-emerald-700 font-medium border border-emerald-200"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-base">🎯</span>
+                      <span>All Games</span>
+                    </div>
+                    <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">{games.length}</span>
+                  </Link>
+                  
+                  {categories.map((category) => (
+                    <Link
+                      key={category.id}
+                      to={`/category/${category.slug}`}
+                      className="w-full flex items-center justify-between px-3 py-2.5 text-sm rounded-lg transition-colors text-gray-700 hover:bg-gray-50 hover:text-emerald-600"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-base">{category.icon}</span>
+                        <span>{category.name}</span>
+                      </div>
+                      <span className="text-xs text-gray-500">{category.gameCount}</span>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Game Stats */}
+                <div className="mt-6 pt-4 border-t border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">Game Library</h3>
+                  <div className="space-y-2 text-sm text-gray-600">
+                    <div className="flex justify-between">
+                      <span>Total Games</span>
+                      <span className="font-medium">{games.length}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Categories</span>
+                      <span className="font-medium">{categories.length}</span>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex-1 min-w-0">
+            {/* Featured Games Section */}
+            <section className="mb-8">
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-2">
+                  <div className="bg-orange-100 rounded-lg p-1.5">
+                    <TrendingUp className="h-4 w-4 text-orange-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-gray-900">Most Popular</h2>
+                    <p className="text-gray-600 text-xs">The games everyone's playing</p>
+                  </div>
+                </div>
+                <Link
+                  to="/browse?sort=popularity"
+                  className="text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1 text-sm"
+                >
+                  View All
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {featuredGames.map((game) => (
+                  <GameCard 
+                    key={game.id} 
+                    game={game} 
+                    variant="grid"
+                    showPopularity={true}
+                  />
+                ))}
+              </div>
+            </section>
+
+
+
+            {/* New Games Section */}
+            <section className="mb-8">
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-2">
+                  <div className="bg-emerald-100 rounded-lg p-1.5">
+                    <Clock className="h-4 w-4 text-emerald-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-gray-900">New Arrivals</h2>
+                    <p className="text-gray-600 text-xs">Fresh games just added</p>
+                  </div>
+                </div>
+                <Link
+                  to="/browse?sort=newest"
+                  className="text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1 text-sm"
+                >
+                  View All
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {newestGames.map((game) => (
+                  <GameCard 
+                    key={game.id} 
+                    game={game} 
+                    variant="compact"
+                    showPopularity={true}
+                  />
+                ))}
+              </div>
+            </section>
+
+            {/* Category Previews - 显示所有6个分类 */}
+            <section>
+              <div className="space-y-8">
+                {categories.map((category) => {
+                  const categoryGames = getGamesByCategory(category.slug).slice(0, 10);
+                  
+                  if (categoryGames.length === 0) return null;
+                  
+                  return (
+                    <div key={category.id} className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <div className="bg-gray-50 rounded-lg p-1.5">
+                            <span className="text-base">{category.icon}</span>
+                          </div>
+                          <div>
+                            <h2 className="text-lg font-bold text-gray-900">
+                              {category.name} Games
+                            </h2>
+                            <p className="text-gray-600 text-xs">{category.description}</p>
+                          </div>
+                        </div>
+                        <Link
+                          to={`/category/${category.slug}`}
+                          className="text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1 text-sm"
+                        >
+                          View All
+                          <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3">
+                        {categoryGames.map((game) => (
+                          <GameCard 
+                            key={game.id} 
+                            game={game} 
+                            variant="grid"
+                            showPopularity={false}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          </div>
         </div>
       </div>
 
-      {/* Browse by Category */}
-      <section id="categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Browse by Category
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Find your perfect gaming mood with our carefully curated categories
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category) => (
-            <Link
-              key={category.id}
-              to={`/category/${category.slug}`}
-              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-emerald-200"
-            >
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl p-3 group-hover:from-emerald-200 group-hover:to-teal-200 transition-colors">
-                  <span className="text-2xl">🎮</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                    {category.name}
-                  </h3>
-                </div>
-                <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-emerald-500 transition-colors" />
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {category.description}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Category Game Previews */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="space-y-16">
-          {categories.map((category) => {
-            const categoryGames = getGamesByCategory(category.slug).slice(0, 4);
-            
-            if (categoryGames.length === 0) return null;
-            
-            return (
-              <div key={category.id} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl p-3">
-                      <span className="text-2xl">🎮</span>
-                    </div>
-                    <div>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                        Cozy {category.name}
-                      </h2>
-                      <p className="text-gray-600 mt-1">
-                        {category.description}
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    to={`/category/${category.slug}`}
-                    className="hidden sm:flex items-center space-x-2 text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
-                  >
-                    <span>View All</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                  {categoryGames.map((game) => (
-                    <GameCard key={game.id} game={game} />
-                  ))}
-                </div>
-                
-                <div className="text-center sm:hidden">
-                  <Link
-                    to={`/category/${category.slug}`}
-                    className="inline-flex items-center space-x-2 text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
-                  >
-                    <span>View All {category.name}</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
       {/* Call to Action */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl p-8 sm:p-12 text-center text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Ready to Relax and Play?
-          </h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Join thousands of players who have found their peaceful gaming sanctuary in Cozyverse
-          </p>
-          <Link
-            to="/category/puzzle"
-            className="inline-flex items-center space-x-2 bg-white text-emerald-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors shadow-lg"
-          >
-            <span>Explore All Games</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg p-6 text-center text-white">
+          <div className="max-w-xl mx-auto">
+            <div className="flex justify-center mb-3">
+              <div className="bg-white/10 backdrop-blur-sm rounded-full p-2">
+                <Star className="h-5 w-5 text-white" />
+              </div>
+            </div>
+            <h2 className="text-xl font-bold mb-2">
+              Ready to Start Playing?
+            </h2>
+            <p className="text-emerald-100 mb-4">
+              Join thousands of players in our cozy gaming community
+            </p>
+            <Link
+              to="/browse"
+              className="inline-flex items-center gap-2 bg-white text-emerald-600 px-5 py-2.5 rounded-lg font-semibold hover:bg-emerald-50 transition-colors shadow-lg"
+            >
+              <span>Explore All Games</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

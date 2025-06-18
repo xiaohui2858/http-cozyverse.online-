@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Users, Play } from 'lucide-react';
 import { Game } from '../types';
-import { categories } from '../data/mockData';
+import { categories } from '../data/realGames';
 
 interface GameCardProps {
   game: Game;

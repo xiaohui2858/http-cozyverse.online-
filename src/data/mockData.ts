@@ -36,7 +36,7 @@ export const categories: Category[] = [
     description: 'Brain-teasing games that challenge your logic and problem-solving skills',
     icon: '🧩',
     color: 'from-purple-400 to-pink-400',
-    gameCount: 25
+    gameCount: 30
   },
   {
     id: 'simulation',
@@ -45,7 +45,7 @@ export const categories: Category[] = [
     description: 'Life-like experiences that let you build, manage, and create',
     icon: '🏗️',
     color: 'from-blue-400 to-cyan-400',
-    gameCount: 25
+    gameCount: 30
   },
   {
     id: 'adventure',
@@ -54,7 +54,7 @@ export const categories: Category[] = [
     description: 'Peaceful exploration and discovery games',
     icon: '🗺️',
     color: 'from-green-400 to-emerald-400',
-    gameCount: 25
+    gameCount: 30
   },
   {
     id: 'casual',
@@ -63,7 +63,7 @@ export const categories: Category[] = [
     description: 'Easy-to-play games perfect for quick relaxation breaks',
     icon: '🎯',
     color: 'from-yellow-400 to-orange-400',
-    gameCount: 25
+    gameCount: 30
   },
   {
     id: 'creative',
@@ -72,7 +72,7 @@ export const categories: Category[] = [
     description: 'Express yourself through art, music, and design',
     icon: '🎨',
     color: 'from-indigo-400 to-purple-400',
-    gameCount: 25
+    gameCount: 30
   },
   {
     id: 'nature',
@@ -81,7 +81,7 @@ export const categories: Category[] = [
     description: 'Connect with the natural world through immersive experiences',
     icon: '🌲',
     color: 'from-green-400 to-teal-400',
-    gameCount: 25
+    gameCount: 30
   }
 ];
 

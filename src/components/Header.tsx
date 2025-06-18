@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Menu, X, Gamepad2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { categories } from '../data/mockData';
+import { categories } from '../data/realGames';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

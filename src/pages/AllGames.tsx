@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Filter, Grid, List, Star, Clock, TrendingUp, Gamepad2 } from 'lucide-react';
 import GameCard from '../components/GameCard';
-import { categories, games, Game } from '../data/mockData';
+import { categories, games } from '../data/realGames';
+import { Game } from '../types';
 
 const AllGames: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -220,7 +221,7 @@ const AllGames: React.FC = () => {
             <div className={`grid gap-4 ${
               viewMode === 'grid' 
                 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
-                : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+                : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
             }`}>
               {displayedGames.map((game) => (
                 <div key={game.id} className="relative">

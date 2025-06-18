@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Grid, List, Filter, SlidersHorizontal, Star, Clock, TrendingUp } from 'lucide-react';
 import GameCard from '../components/GameCard';
-import { games, categories, Game } from '../data/mockData';
+import { categories, games } from '../data/realGames';
+import { Game } from '../types';
 
 const Browse: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -240,7 +241,7 @@ const Browse: React.FC = () => {
             {filteredAndSortedGames.length > 0 ? (
               <div className={
                 viewMode === 'grid' 
-                  ? 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4' 
+                  ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4' 
                   : 'space-y-4'
               }>
                 {filteredAndSortedGames.map((game) => (

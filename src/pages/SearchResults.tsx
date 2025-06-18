@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Search, ArrowLeft } from 'lucide-react';
 import GameCard from '../components/GameCard';
-import { searchGames } from '../data/mockData';
+import { searchGames } from '../data/realGames';
 
 const SearchResults: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -65,9 +65,9 @@ const SearchResults: React.FC = () => {
 
         {/* Search Results */}
         {query && results.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
             {results.map((game) => (
-              <GameCard key={game.id} game={game} />
+              <GameCard key={game.id} game={game} variant="grid" />
             ))}
           </div>
         ) : query && results.length === 0 ? (
@@ -108,4 +108,4 @@ const SearchResults: React.FC = () => {
   );
 };
 
-export default SearchResults;
+export default SearchResults; 

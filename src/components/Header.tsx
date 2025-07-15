@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Menu, X, Gamepad2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { categories } from '../data/mockData';
+import { categories } from '../data/realGames';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,6 +32,9 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            <Link to="/browse" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              Browse Games
+            </Link>
             <div className="relative group">
               <button className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
                 Categories
@@ -97,7 +100,14 @@ const Header: React.FC = () => {
               </div>
             </form>
             <div className="space-y-2">
-              <div className="font-medium text-gray-900 mb-3">Categories</div>
+              <Link
+                to="/browse"
+                className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Browse All Games
+              </Link>
+              <div className="font-medium text-gray-900 mb-3 mt-4">Categories</div>
               {categories.map((category) => (
                 <Link
                   key={category.id}

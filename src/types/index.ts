@@ -5,13 +5,11 @@ export interface Game {
   description: string;
   coverImage: string;
   categories: string[];
-  controls: string;
+  controls?: string;
   popularityScore: number;
   status: 'published' | 'draft';
   publishedAt: string;
-  gameType: 'canvas' | 'html';
-  gameCode: string;
-  icon: string;
+  iframeCode: string;
 }
 
 export interface Category {

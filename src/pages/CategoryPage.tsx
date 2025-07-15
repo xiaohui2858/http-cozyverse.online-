@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Filter } from 'lucide-react';
 import GameCard from '../components/GameCard';
-import { categories, getGamesByCategory } from '../data/realGames';
+import { categories, getGamesByCategory } from '../data/mockData';
 
 const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -67,10 +67,10 @@ const CategoryPage: React.FC = () => {
 
         {/* Games Grid */}
         {games.length > 0 ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {games.map((game) => (
-            <GameCard key={game.id} game={game} variant="grid" />
-          ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {games.map((game) => (
+              <GameCard key={game.id} game={game} />
+            ))}
           </div>
         ) : (
           <div className="text-center py-16">

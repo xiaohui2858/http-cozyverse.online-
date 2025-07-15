@@ -1,47 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Maximize, ArrowLeft, Star, Users, Calendar, Tag } from 'lucide-react';
-import { games, categories } from '../data/realGames';
+import { games } from '../data/mockData';
 
 const GameDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const gameContainerRef = useRef<HTMLDivElement>(null);
   const game = games.find(g => g.slug === slug);
-
-  useEffect(() => {
-    // 页面加载时自动滚动到顶部
-    window.scrollTo(0, 0);
-    
-    if (game && gameContainerRef.current) {
-      // Clear previous content
-      gameContainerRef.current.innerHTML = '';
-      
-      // Directly set the innerHTML to render the game
-      gameContainerRef.current.innerHTML = game.gameCode;
-      
-      // Execute any scripts in the game code
-      const scripts = gameContainerRef.current.querySelectorAll('script');
-      scripts.forEach(script => {
-        const newScript = document.createElement('script');
-        newScript.textContent = script.textContent;
-        document.body.appendChild(newScript);
-        // Clean up after execution
-        setTimeout(() => {
-          if (newScript.parentNode) {
-            newScript.parentNode.removeChild(newScript);
-          }
-        }, 100);
-      });
-    }
-    
-    // Cleanup function
-    return () => {
-      if (gameContainerRef.current) {
-        gameContainerRef.current.innerHTML = '';
-      }
-    };
-  }, [game]);
 
   if (!game) {
     return (
@@ -134,14 +99,18 @@ const GameDetail: React.FC = () => {
                   <span>{isFullscreen ? 'Exit' : 'Fullscreen'}</span>
                 </button>
               </div>
-              <div 
-                ref={gameContainerRef}
-                className={`game-container ${isFullscreen ? 'h-full' : 'min-h-[700px]'} w-full overflow-auto`}
-                style={{
-                  maxWidth: '100%',
-                  width: '100%'
-                }}
-              >
+              <div className={`${
+                isFullscreen ? 'h-full' : 'h-96 sm:h-[500px]'
+              }`}>
+                <iframe 
+                  className="w-full h-full border-0"
+                  src={game.iframeCode.match(/src="([^"]*)"/)![1]}
+                  title={`Play ${game.title}`}
+                  allowFullScreen
+                  allow="gamepad; microphone; camera; clipboard-read; clipboard-write; fullscreen; autoplay"
+                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-modals"
+                  loading="lazy"
+                />
               </div>
             </div>
 
@@ -157,10 +126,27 @@ const GameDetail: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Ad Space - In-Content */}
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 text-center border border-purple-100 mb-8">
+              <p className="text-purple-600 font-medium text-sm">Advertisement Space</p>
+              <p className="text-purple-500 text-xs mt-1">In-Content Ad (728x90)</p>
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
+            {/* Ad Space - Sidebar */}
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 text-center border border-blue-100 mb-8 sticky top-4">
+              <p className="text-blue-600 font-medium text-sm">Advertisement Space</p>
+              <p className="text-blue-500 text-xs mt-1">Sidebar Ad (300x250)</p>
+              <div className="mt-4 bg-white bg-opacity-50 rounded-lg p-8">
+                <div className="w-full h-32 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <span className="text-blue-400 text-sm">Ad Content</span>
+                </div>
+              </div>
+            </div>
+
             {/* Game Stats Card */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
               <h3 className="font-semibold text-gray-900 mb-4">Game Statistics</h3>
@@ -179,41 +165,6 @@ const GameDetail: React.FC = () => {
                     {game.status}
                   </span>
                 </div>
-              </div>
-            </div>
-
-            {/* Leaderboard Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <span>🏆</span>
-                Leaderboard
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { rank: 1, name: 'PlayerPro', score: Math.floor(Math.random() * 50000) + 10000, avatar: '🥇' },
-                  { rank: 2, name: 'GameMaster', score: Math.floor(Math.random() * 40000) + 8000, avatar: '🥈' },
-                  { rank: 3, name: 'SkillLord', score: Math.floor(Math.random() * 30000) + 6000, avatar: '🥉' },
-                  { rank: 4, name: 'ChallengeKing', score: Math.floor(Math.random() * 25000) + 5000, avatar: '👑' },
-                  { rank: 5, name: 'TopPlayer', score: Math.floor(Math.random() * 20000) + 4000, avatar: '⭐' }
-                ].map((player) => (
-                  <div key={player.rank} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <span className="text-lg">{player.avatar}</span>
-                      <div>
-                        <p className="font-medium text-gray-900 text-sm">{player.name}</p>
-                        <p className="text-xs text-gray-500">Rank #{player.rank}</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-bold text-emerald-600">{player.score.toLocaleString()}</p>
-                      <p className="text-xs text-gray-500">points</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 p-3 bg-emerald-50 rounded-lg text-center">
-                <p className="text-emerald-700 font-medium text-sm">🎯 Beat the high scores!</p>
-                <p className="text-emerald-600 text-xs">Play now to join the leaderboard</p>
               </div>
             </div>
           </div>

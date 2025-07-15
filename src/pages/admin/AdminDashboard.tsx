@@ -10,7 +10,7 @@ import {
   Star,
   Calendar
 } from 'lucide-react';
-import { games, categories } from '../../data/realGames';
+import { games, categories } from '../../data/mockData';
 
 const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
